@@ -273,6 +273,12 @@ M.essential_mappings = function()
     key = key + 1
   end
 
+  -- Fix: https://github.com/kiyoon/Korean-IME.nvim/issues/2
+  vim.keymap.set("i", "<space>", function()
+    finish_2s()
+    return "<space>"
+  end, { noremap = true, silent = true, expr = true, desc = "Korean-IME.nvim space" })
+
   vim.keymap.set("i", "<BS>", function()
     return revert()
   end, { noremap = true, silent = true, expr = true, desc = "Korean-IME.nvim backspace" })
