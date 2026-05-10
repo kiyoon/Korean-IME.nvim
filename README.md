@@ -72,6 +72,19 @@ lazy.nvim:
 
 ## 💡 Tips
 
+### (Windows) Windows Terminal 내부에서 한/영 키를 F12 키로 맵핑
+Windows Terminal **설정** 또는 `Ctrl + ,` → 왼쪽 하단 **JSON 파일 열기** → `"actions"` 배열에 추가:
+```json
+{
+    "command": { "action": "sendInput", "input": "\u007B" },
+    "keys": "vk15"
+}
+```
+저장 후 바로 적용됩니다.
+- `vk15` — 한/영 키의 가상 키 코드
+- `\u007B` — F12 입력
+- Korean-IME.nvim 플러그인 효과로 nvim 안에서 F12가 한영 전환으로 쓰이는 환경에서 유효합니다.
+
 ### (macOS) Hammerspoon으로 nvim 감지해 한영 전환하기
 
 Right Command 키를 nvim일 때 `<f12>`로 매핑하고 그 외에는 시스템 입력기를 전환하려면 다음과 같이 설정할 수 있습니다.
